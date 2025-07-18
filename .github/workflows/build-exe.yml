@@ -1,0 +1,36 @@
+---
+name: build-exe
+
+on:
+  workflow_dispatch
+
+jobs:
+
+  windows:
+    name: Publish Windows build
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
+      - name: Cache build artifacts
+        uses: swatinem/rust-cache@v2.0.0
+
+      - name: Build release artifact
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+
+      - name: Create distribution folder
+        run: mkdir ./dist
+
+      - name: Copy release artifact into distribution folder
+        run: cp target/release/auto-traffic-control-game.exe ./dist/auto-traffic-control.exe
