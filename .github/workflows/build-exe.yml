@@ -1,7 +1,7 @@
 ---
 name: build-exe
 
-on:
+"on":
   workflow_dispatch
 
 jobs:
@@ -19,6 +19,11 @@ jobs:
         with:
           toolchain: stable
           override: true
+
+      - name: Set up Protoc
+        uses: arduino/setup-protoc@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache build artifacts
         uses: swatinem/rust-cache@v2.0.0
