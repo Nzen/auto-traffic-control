@@ -87,7 +87,7 @@ fn setup_score(mut commands: Commands, asset_server: Res<AssetServer>) {
             },
             style: Style {
                 position_type: PositionType::Absolute,
-                position: UiRect {
+                position: Rect {
                     top: Val::Px(8.0),
                     left: Val::Px(8.0),
                     ..Default::default()

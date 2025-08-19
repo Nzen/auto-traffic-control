@@ -33,16 +33,16 @@ category = "public.app-category.games"
 [dependencies]
 auto-traffic-control = { path = "../sdk/rust", version = "0.3.2", features = ["server"] }
 
-bevy = "0.8.0"
+bevy = "0.7.0"
 dashmap = "5.2.0"
-geo = "0.22.1"
-parking_lot = "0.12.1"
-prost = "0.11.0"
+geo = "0.20.1"
+parking_lot = "0.12.0"
+prost = "0.10.3"
 rand = "0.8.5"
-semver = "1.0.12"
-tokio = { version = "1.20.1", features = ["macros", "rt-multi-thread", "sync"] }
-tokio-stream = { version = "0.1.9", features = ["sync"] }
-tonic = "0.8.0"
+semver = "1.0.9"
+tokio = { version = "1.18.2", features = ["macros", "rt-multi-thread", "sync"] }
+tokio-stream = { version = "0.1.8", features = ["sync"] }
+tonic = "0.7.2"
 
 [target.'cfg(macos)'.dependencies]
 core-foundation = "0.9.3"
